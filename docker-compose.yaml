@@ -1,0 +1,15 @@
+services:
+  service1:
+    container_name: wp   
+    build: .
+    tty: true
+    stdin_open: true
+    environment:
+    - db_user=wp
+    - db_password=wppass
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - ./html:/var/www/html
+    - ./db_data:/var/lib/mysql
